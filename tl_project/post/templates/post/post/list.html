@@ -1,0 +1,34 @@
+{% extends "post/base.html" %}
+{% block title %}Post List{% endblock %}
+{% block content %}
+    <form action="{% url 'post:list' %}" method="get">
+        <input name="q" type="text" placeholder="Search..." value="{{ query }}">
+        <input type="submit" value="Search in posts">
+    </form>
+        <h2>Post List</h2>
+
+<table class="table table-bordered table-hover table w-auto small">
+    <thead>
+    <tr class="align-top">
+        <th scope="col">Имя пользователя </th>
+        <th scope="col">Тема поста</th>
+        <th scope="col">Текст поста</th>
+    </tr>
+    </thead>
+  <tbody>
+  {% for post in posts %}
+    <tr>
+        <td>{{post.author|default_if_none:""}}</td>
+        <td>{{ post.title|default_if_none:"" }}</td>
+        <td>{{ post.body|default_if_none:"" }}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}
+
+
+
+
+

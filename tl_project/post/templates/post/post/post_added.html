@@ -1,0 +1,9 @@
+{% extends "post/base.html" %}
+{% block title %}Post added{% endblock %}
+{% block content %}
+    <h2>{{ post_count }} posts added to database</h2>
+
+    <h5>Return <a href = "{% url 'post:list' %}">to the list.</a></h5>
+
+
+{% endblock %}
